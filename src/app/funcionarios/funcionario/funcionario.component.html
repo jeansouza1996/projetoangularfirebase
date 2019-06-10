@@ -1,0 +1,32 @@
+<form #funcionarioForm="ngForm" (ngSubmit)="onSubmit(funcionarioForm)">
+    <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.$key">
+  <div class="form-group">
+    <label>Nome</label>
+    <input class="form-control" name="nome" #name="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.nome" placeholder="Nome Completo" required>
+  </div>
+  <div class="form-group">
+    <label>Cargo</label>
+    <input class="form-control" name="cargo" #cargo="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.cargo" placeholder="Cargo">
+  </div>
+  <div class="form-group">
+    <label>Departamento</label>
+    <input class="form-control" name="departamento" #office="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.departamento" placeholder="Departamento">
+  </div>
+  <div class="form-group">
+    <label>Salario</label>
+    <div class="input-group">
+        <div class="input-group-addon">
+          <i class="fa fa-dollar"></i>
+        </div>
+        <input class="form-control" name="salario" #salario="ngModel" [(ngModel)]="funcionarioService.selectedFuncionario.salario" placeholder="Salary">
+    </div>
+  </div>
+  <div class="form-group">
+    <button class="btn btn-default" type="submit" [disabled]="!funcionarioForm.valid">
+      <i class="fa fa-floppy-o"></i>
+       Submit</button>
+    <button class="btn btn-default" type="button" (click)="resetForm(funcionarioForm)">
+      <i class="fa fa-repeat"></i>
+       Reset</button>
+  </div>
+</form>
